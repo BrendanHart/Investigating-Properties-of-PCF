@@ -1,0 +1,253 @@
+\documentclass[11pt]{article}
+\usepackage[backend=biber,style=alphabetic,backref=true]{biblatex}
+\addbibresource{ref.bib}
+
+\usepackage{hyperref} 
+\usepackage{agda}
+
+\usepackage{xcolor}
+\hypersetup{
+    colorlinks,
+    linkcolor={red!50!black},
+    citecolor={blue!50!black},
+    urlcolor={blue!80!black}
+}
+\usepackage{a4wide}
+\usepackage{subfiles}
+\setcounter{tocdepth}{4}
+\setcounter{secnumdepth}{4}
+
+\usepackage{microtype}
+\usepackage{mathtools}
+ 
+\usepackage{bussproofs}
+\usepackage{multicol}
+\usepackage[title,page,titletoc]{appendix}
+
+\usepackage{listings}
+
+\usepackage{enumerate}
+\usepackage{tikz-cd}
+\usepackage{amsthm}
+\usepackage{amsmath}
+\usepackage[capitalize,noabbrev]{cleveref}
+\usepackage{syntax}
+\usepackage{titlesec} 
+\usepackage{setspace}
+\usepackage[shortlabels]{enumitem}
+\setlist{noitemsep, topsep=-\parskip}
+
+\titlespacing\section{0pt}{8pt plus 4pt minus 2pt}{0pt plus 2pt minus 2pt}
+%\titlespacing\subsection{0pt}{8pt plus 4pt minus 2pt}{0pt plus 2pt minus 2pt}
+%\titlespacing\subsubsection{0pt}{4pt plus 4pt minus 2pt}{0pt plus 2pt minus 2pt}
+
+\titlespacing{\subsection}{0pt}{\parskip}{-\parskip}
+\titlespacing{\subsubsection}{0pt}{\parskip}{-\parskip}
+\titlespacing{\paragraph}{0pt}{0pt}{1em}
+
+% Spaces between paras and remove indent
+\setlength{\parindent}{0pt}
+\usepackage{parskip}
+% Fix for amsthm
+\makeatletter
+\def\thm@space@setup{%
+  \thm@preskip=\parskip \thm@postskip=0pt
+}
+\makeatother
+
+% Standard environments
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem*{theorem*}{Theorem}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{corollary}[theorem]{Corollary}
+\theoremstyle{definition}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{example}[theorem]{Example}
+\theoremstyle{remark}
+\newtheorem{remark}[theorem]{Remark}
+
+\newcommand{\PCF}{\operatorname{PCF}}
+\newcommand{\IfZero}{\operatorname{IfZero}}
+\newcommand{\Fix}{\operatorname{Fix}}
+\newcommand{\SuccPCF}{\operatorname{Succ}}
+\newcommand{\Pred}{\operatorname{Pred}}
+\newcommand{\Zero}{\operatorname{Zero}}
+\newcommand{\colonequiv}{\vcentcolon\mspace{-1.2mu}\equiv}
+
+\crefname{appsec}{Appendix}{Appendices}
+
+\usepackage{fontspec,unicode-math}
+%\setmainfont{XITS}
+\setmathfont{XITS Math}
+\setsansfont{XITS Math}
+\newfontfamily{\fallbackfont}{XITS Math}
+\DeclareTextFontCommand{\textfallback}{\fallbackfont}
+\newcommand*{\mysymb}[1]{{\fontspec{Droid Sans Fallback}\symbol{#1}}}
+
+\renewcommand{\baselinestretch}{1.25}
+\usepackage[margin=1in]{geometry}
+
+\usepackage{newunicodechar}
+\newunicodechar{₀}{\ensuremath{_{0}}}
+\newunicodechar{₁}{\ensuremath{_{1}}}
+\newunicodechar{₂}{\ensuremath{_{2}}}
+\newunicodechar{₃}{\ensuremath{_{3}}}
+\newunicodechar{₄}{\ensuremath{_{4}}}
+\newunicodechar{ₙ}{\ensuremath{_{n}}}
+\newunicodechar{ᵢ}{\ensuremath{_{i}}}
+\newunicodechar{ₑ}{\ensuremath{_{e}}}
+\newunicodechar{⁻}{\ensuremath{^{-}}}
+\newunicodechar{⁺}{\ensuremath{^{+}}}
+\newunicodechar{ᵈ}{\ensuremath{^{d}}}
+\newunicodechar{ᵉ}{\ensuremath{^{e}}}
+\newunicodechar{ᶜ}{\ensuremath{^{c}}}
+\newunicodechar{ᵖ}{\ensuremath{^{p}}}
+\newunicodechar{ᵒ}{\ensuremath{^{o}}}
+\newunicodechar{σ}{\textfallback{σ}}
+\newunicodechar{δ}{\textfallback{δ}}
+\newunicodechar{α}{\textfallback{α}}
+\newunicodechar{τ}{\textfallback{τ}}
+\newunicodechar{ƛ}{\textfallback{ƛ}}
+\newunicodechar{ι}{\textfallback{ι}}
+\newunicodechar{γ}{\textfallback{γ}}
+\newunicodechar{̇}{\textfallback{̇}}
+\newunicodechar{≡}{\textfallback{≡}}
+\newunicodechar{ρ}{\textfallback{ρ}}
+\newunicodechar{⊏}{\textfallback{⊏}}
+\newunicodechar{̰}{\textfallback{̰}}
+\newunicodechar{⟨}{\textfallback{⟨}}
+\newunicodechar{⟩}{\textfallback{⟩}}
+\newunicodechar{ℕ}{\textfallback{ℕ}}
+\newunicodechar{⊑}{\ensuremath{\textfallback{⊑}}}
+\newunicodechar{𝓥}{\ensuremath{\mathscr{v}}}
+\newunicodechar{𝓥}{\ensuremath{\mathscr{V}}}
+\newunicodechar{𝓤}{\ensuremath{\mathscr{U}}}
+\newunicodechar{𝓦}{\ensuremath{\mathscr{W}}}
+\newunicodechar{𝓣}{\ensuremath{\mathscr{T}}}
+\newunicodechar{𝓓}{\ensuremath{\mathscr{D}}}
+\newunicodechar{𝓔}{\ensuremath{\mathscr{E}}}
+\newunicodechar{𝓕}{\ensuremath{\mathscr{F}}}
+\newunicodechar{【}{\mysymb{"3010}}
+\newunicodechar{】}{\mysymb{"3011}}
+
+\usepackage{lipsum}
+\newenvironment{bprooftree}
+  {\leavevmode\hbox\bgroup}
+  {\DisplayProof\egroup}
+
+\newcommand{\AgdaConFunBot}[2]{\AgdaFunction{DCPO⊥[}\AgdaSpace{}\AgdaBound{#1}\AgdaSpace{}\AgdaFunction{,}\AgdaSpace{}\AgdaBound{#2}\AgdaSpace{}\AgdaFunction{]}}
+\newcommand{\AgdaConFun}[2]{\AgdaFunction{DCPO[}\AgdaSpace{}\AgdaBound{#1}\AgdaSpace{}\AgdaFunction{,}\AgdaSpace{}\AgdaBound{#2}\AgdaSpace{}\AgdaFunction{]}}
+\newcommand{\FuncDcpo}[2]{\AgdaBound{#1}\AgdaSpace{}\AgdaFunction{⟹ᵈᶜᵖᵒ}\AgdaSpace{}\AgdaBound{#2}}
+\newcommand{\FuncDcpoBot}[2]{\AgdaBound{#1}\AgdaSpace{}\AgdaFunction{⟹ᵈᶜᵖᵒ⊥}\AgdaSpace{}\AgdaBound{#2}}
+\newcommand{\AgdaDcpoOrdering}[3]{\AgdaBound{#1}\AgdaSpace{}\AgdaFunction{⊑⟨}\AgdaSpace{}\AgdaBound{#2}\AgdaSpace{}\AgdaFunction{⟩}\AgdaSpace{}\AgdaBound{#3}}
+\newcommand{\AgdaUpperBound}[2]{\AgdaFunction{∐}\AgdaSpace{}\AgdaBound{#1}\AgdaSpace{}\AgdaBound{#2}}
+\newcommand{\UnderlyingFunction}[3]{\AgdaFunction{underlying-function}\AgdaSpace{}\AgdaBound{#1}\AgdaSpace{}\AgdaBound{#2}\AgdaSpace{}\AgdaBound{#3}}
+\newcommand{\AgdaBrackets}[1]{\AgdaSymbol{(}#1\AgdaSymbol{)}}
+\newcommand{\AgdaPair}[2]{\AgdaBrackets{\AgdaBound{#1}\AgdaSpace{}\AgdaSymbol{,}\AgdaSpace{}\AgdaBound{#2}}}
+\newcommand{\AgdaComp}[2]{\AgdaBound{#1}\AgdaSpace{}\AgdaFunction{∘}\AgdaSpace{}\AgdaBound{#2}}
+\newcommand{\AgdaEq}[2]{\AgdaBound{#1}\AgdaSpace{}\AgdaFunction{≡}\AgdaSpace{}\AgdaBound{#2}}
+\newcommand{\AgdaFunEq}[2]{\AgdaBound{#1}\AgdaSpace{}\AgdaFunction{∼}\AgdaSpace{}\AgdaBound{#2}}
+
+\newcommand{\AgdaZero}{\AgdaInductiveConstructor{Zero}}
+\newcommand{\AgdaSucc}[1]{\AgdaInductiveConstructor{Succ}\AgdaSpace{}\AgdaBound{#1}}
+\newcommand{\AgdaPred}[1]{\AgdaInductiveConstructor{Pred}\AgdaSpace{}\AgdaBound{#1}}
+\newcommand{\AgdaIfZero}[3]{\AgdaInductiveConstructor{IfZero}\AgdaSpace{}\AgdaBound{#1}\AgdaSpace{}\AgdaBound{#2}\AgdaSpace{}\AgdaBound{#3}}
+\newcommand{\AgdaLambda}[1]{\AgdaInductiveConstructor{ƛ}\AgdaSpace{}\AgdaBound{#1}}
+\newcommand{\AgdaApp}[2]{\AgdaBound{#1}\AgdaSpace{}\AgdaInductiveConstructor{·}\AgdaSpace{}\AgdaBound{#2}}
+\newcommand{\AgdaVar}[1]{\AgdaInductiveConstructor{v}\AgdaSpace{}\AgdaBound{#1}}
+\newcommand{\AgdaFix}[1]{\AgdaInductiveConstructor{Fix}\AgdaSpace{}\AgdaBound{#1}}
+\newcommand{\AgdaTypeInterp}[1]{\AgdaFunction{⟦}\AgdaSpace{}\AgdaBound{#1}\AgdaSpace{}\AgdaFunction{⟧}}
+\newcommand{\AgdaContextInterp}[1]{\AgdaFunction{【}\AgdaSpace{}\AgdaBound{#1}\AgdaSpace{}\AgdaFunction{】}}
+\newcommand{\AgdaTermInterp}[1]{\AgdaFunction{⟦}\AgdaSpace{}\AgdaBound{#1}\AgdaSpace{}\AgdaFunction{⟧ₑ}}
+\newcommand{\AgdaPCFType}[2]{\AgdaBound{#1}\AgdaSpace{}\AgdaInductiveConstructor{⇒}\AgdaSpace{}\AgdaBound{#2}}
+\newcommand{\AgdaExtractDCPO}[1]{\AgdaFunction{⟪}~\AgdaBound{#1}~\AgdaFunction{⟫}}
+\newcommand{\AgdaExtractSet}[1]{\AgdaFunction{⟨}\AgdaSpace{}\AgdaBound{#1}\AgdaSpace{}\AgdaFunction{⟩}}
+\newcommand{\AgdaTypeJudge}[3]{\AgdaBound{#1}\AgdaSpace{}\AgdaSymbol{:}\AgdaSpace{}\AgdaDatatype{PCF}\AgdaSpace{}\AgdaBound{#2}\AgdaSpace{}\AgdaBound{#3}}
+\newcommand{\AgdaLookupJudge}[3]{\AgdaBound{#1}\AgdaSpace{}\AgdaSymbol{:}\AgdaSpace{}\AgdaBound{#2}\AgdaSpace{}\AgdaFunction{∋}\AgdaSpace{}\AgdaBound{#3}}
+\newcommand{\AgdaReplace}[2]{\AgdaBound{#1}\AgdaSpace{}\AgdaFunction{[}\AgdaSpace{}\AgdaBound{#2}\AgdaSpace{}\AgdaFunction{]}}
+\newcommand{\AgdaBigStep}[2]{\AgdaBound{#1}\AgdaSpace{}\AgdaDatatype{⇓}\AgdaSpace{}\AgdaBound{#2}}
+\newcommand{\AgdaBigStepPrime}[2]{\AgdaBound{#1}\AgdaSpace{}\AgdaFunction{⇓'}\AgdaSpace{}\AgdaBound{#2}}
+\newcommand{\AgdaAppApr}[2]{\AgdaBound{#1}\AgdaSpace{}\AgdaFunction{⊏̰}\AgdaSpace{}\AgdaBound{#2}}
+\newcommand{\AgdaEmptyContext}{\AgdaInductiveConstructor{⟨⟩}}
+\newcommand{\AgdaProductDCPO}[2]{\AgdaBound{#1}\AgdaSpace{}\AgdaFunction{×ᵈᶜᵖᵒ}\AgdaSpace{}\AgdaBound{#2}}
+\newcommand{\AgdaFun}[2]{\AgdaBound{#1}\AgdaSpace{}\AgdaSymbol{→}\AgdaSpace{}\AgdaBound{#2}}
+\newcommand{\AgdaType}[2]{\AgdaBound{#1}\AgdaSpace{}\AgdaSymbol{:}\AgdaSpace{}\AgdaBound{#2}}
+\newcommand{\AgdaExtendContext}[2]{\AgdaBound{#1}\AgdaSpace{}\AgdaInductiveConstructor{’}\AgdaSpace{}\AgdaBound{#2}}
+\newcommand{\AdequacyRel}[3]{\AgdaFunction{adequacy-relation}\AgdaSpace{}\AgdaBound{#1}\AgdaSpace{}\AgdaBound{#2}\AgdaSpace{}\AgdaBound{#3}}
+\newcommand{\AgdaImplicit}[1]{\AgdaSymbol{\{}\AgdaBound{#1}\AgdaSymbol{\}}}
+
+\DeclarePairedDelimiter{\squash}{\|}{\|}
+\DeclarePairedDelimiter{\tosquash}{|}{|}
+\DeclarePairedDelimiter{\pa}{(}{)}
+
+\setlength{\mathindent}{0pt} 
+\setlength{\AgdaEmptySkip}{1ex}
+
+\newcommand{\hide}[1]{}
+
+% Redefine proof environment 
+\makeatletter
+\renewenvironment{proof}[1][\proofname]{\par
+  \vspace{-\topsep}% remove the space after the theorem
+  \pushQED{\qed}%
+  \normalfont
+  \topsep0pt \partopsep0pt % no space before
+  \trivlist
+  \item[\hskip\labelsep
+        \itshape
+    #1\@addpunct{.}]\ignorespaces
+}{%
+  \popQED\endtrivlist\@endpefalse
+  \addvspace{3pt} % some space after
+}
+\makeatother
+\begin{document}
+
+\title{Investigating Properties of PCF in Agda}
+\author{Brendan Hart \\
+  \emph{Supervised by } Mart\'{\i}n Escard\'o \\
+  \emph{Co-supervised by } Tom de Jong
+}
+\date{MSci Computer Science 2020}
+
+\maketitle
+
+\begin{abstract}
+Using Agda as a proof assistant, we explore properties of PCF. We work in a constructive setting using univalent type theory. We first define PCF, and its operational semantics. We next build upon the current formalisation of domain theory in Agda by Tom de Jong, formalising the necessary constructions which allows us to construct the Scott model of PCF. Finally, we show that this model is computationally adequate with respect to the operational semantics.
+\end{abstract}
+
+\begin{multicols}{2}
+  %\begin{spacing}{1}
+  \begin{small}
+  {\hypersetup{linkcolor=black}
+  \tableofcontents}
+  \end{small}
+  %\end{spacing}
+\end{multicols}
+
+\newpage
+
+\subfile{Introduction.tex}
+\subfile{Background.tex}
+\subfile{PCF-Chapter.tex}
+\subfile{OpSem.tex}
+\subfile{DomainTheory.tex}
+\subfile{ScottModel.tex}
+\subfile{Correctness.tex}
+\subfile{Adequacy.tex} 
+\subfile{Evaluation.tex} 
+\subfile{Conclusion.tex} 
+
+\setstretch{1.0}
+\renewcommand{\bibfont}{\normalfont\footnotesize}
+\printbibliography
+
+\setstretch{1.25}
+\newpage
+\begin{appendices}
+  \crefalias{section}{appsec}
+  \subfile{Appendix.tex} 
+\end{appendices}
+
+\end{document}
