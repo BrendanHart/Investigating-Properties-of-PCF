@@ -32,5 +32,4 @@ Note that it can be expected to see some differences between the report and the 
 change the proof. They are usually changes to aid the reader when relating the code in the report to the rest of the report,
 or changes made to ensure the code fits within the pages.
 
-It is also important to note that the source files do not solely contain developments from just this project. They include previous
-work by Martín Escardó et al. which has been built upon. The author can be found at the top of each file. See <https://github.com/martinescardo/TypeTopology> for the latest developments.
+It is also important to note that the source files do not solely contain developments from just this project. They build upon previous work by Martín Escardó and Tom de Jong. The author can be found at the top of each file. See <https://github.com/martinescardo/TypeTopology> for the latest developments.

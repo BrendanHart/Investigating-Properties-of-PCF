@@ -22,7 +22,7 @@
  
 \usepackage{bussproofs}
 \usepackage{multicol}
-\usepackage[title,page,titletoc]{appendix}
+\usepackage[title,page,titletoc,toc]{appendix}
 
 \usepackage{listings}
 
@@ -209,13 +209,14 @@
   \emph{Supervised by } Mart\'{\i}n Escard\'o \\
   \emph{Co-supervised by } Tom de Jong
 }
-\date{MSci Computer Science 2020}
+\date{MSci Computer Science 2020, \\ School of Computer Science, University of Birmingham, UK}
 
 \maketitle
 
 \begin{abstract}
 Using Agda as a proof assistant, we explore properties of PCF. We work in a constructive setting using univalent type theory. We first define PCF, and its operational semantics. We next build upon the current formalisation of domain theory in Agda by Tom de Jong, formalising the necessary constructions which allows us to construct the Scott model of PCF. Finally, we show that this model is computationally adequate with respect to the operational semantics.
 \end{abstract}
+
 
 \begin{multicols}{2}
   %\begin{spacing}{1}
@@ -247,6 +248,7 @@ Using Agda as a proof assistant, we explore properties of PCF. We work in a cons
 \newpage
 \begin{appendices}
   \crefalias{section}{appsec}
+  \addtocontents{toc}{\protect\setcounter{tocdepth}{-5}}}
   \subfile{Appendix.tex} 
 \end{appendices}
 
